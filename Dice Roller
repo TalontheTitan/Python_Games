@@ -2,6 +2,15 @@ import random
 import time
 
 
+def roll():
+    player_die = (random.randrange(1, int(dside)))
+    time.sleep(1)
+    print("Rolling the Die...")
+    time.sleep(1)
+    print("You rolled a " + str(player_die))
+    time.sleep(1)
+
+
 def menu():
     print("Lets Play Dice Roller")
     time.sleep(1)
@@ -18,17 +27,14 @@ game_mode = int(input("Which Game Mode Would You Like to Play: "))
 while game_mode != 0:
     if game_mode == 1:
         print("Single Player Chosen")
-        dside = int(input("Enter the number of sides on your dice: "))
         while game_mode == 1:
-            player_die = (random.randrange(1, int(dside)))
+            time.sleep(.8)
+            dside = int(input("Enter the number of sides on your dice: "))
             time.sleep(1)
-            print("Rolling the Die...")
-            time.sleep(1)
-            print("You rolled a " + str(player_die))
-            time.sleep(1)
+            roll()
             reroll = input("Would you like to roll again (Y/N) ")
             if reroll.lower() == "n":
-                close = input("Do you want to go back to the main menu (y/n) ")
+                close = input("Do you want to go back to the main menu (Press y to return to main menu, any other key to exit) ")
                 if close.lower().strip() == "y":
                     menu()
                     game_mode = int(input("Which Game Mode Would You Like to Play: "))
@@ -56,7 +62,7 @@ while game_mode != 0:
             reroll2 = input("Would you like to roll again? (y/n)? ")
             time.sleep(.8)
             if reroll2.lower() == "n":
-                close1 = input("Do you want to return to the main menu? (y/n) ")
+                close1 = input("Do you want to return to the main menu? (Press y to return to main menu, any other key to exit) ")
                 if close1 == "y":
                     menu()
                     game_mode = int(input("Which Game Mode Would You Like to Play: "))
